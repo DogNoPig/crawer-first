@@ -183,12 +183,12 @@ public class JsoupFristTest {
         System.out.println("组合选择器：元素+属性名："+element2.text());
 
         //4.任意组合 div[abc].hf2
-        Element element3 = doc.select("div[ab].hh").first();
-        System.out.println("组合选择器：任意组合："+element3.text());
+        Element element3 = doc.select("[ab] > div").first();
+        System.out.println("组合选择器：任意组合 父 -》 子："+element3.text());
 
         //5.查找某个元素下子元素
-        Elements elements = doc.select(".hf li");
-
+        Elements elements = doc.select(".aa div");
+        System.out.println("组合选择器：元素下子元素："+elements.text());
     }
 
 }
