@@ -162,4 +162,33 @@ public class JsoupFristTest {
 
     }
 
+    /**
+     * 组合选择器
+     * @throws Exception
+     */
+    @Test
+    public void testSelector2() throws Exception{
+        Document doc = Jsoup.parse(new File("C:\\Users\\Administrator\\Desktop\\test.html"), "utf8");
+
+        //1.元素+id
+        Element element = doc.select("h1#hf").first();
+        System.out.println("组合选择器：元素+id："+element.text());
+
+        //2.元素+class
+        Element element1 = doc.select("span.hf2").first();
+        System.out.println("组合选择器：元素+class："+element1.text());
+
+        //3.元素+属性名
+        Element element2 = doc.select("div[abc]").first();
+        System.out.println("组合选择器：元素+属性名："+element2.text());
+
+        //4.任意组合 div[abc].hf2
+        Element element3 = doc.select("div[ab].hh").first();
+        System.out.println("组合选择器：任意组合："+element3.text());
+
+        //5.查找某个元素下子元素
+        Elements elements = doc.select(".hf li");
+
+    }
+
 }
